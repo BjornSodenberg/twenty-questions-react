@@ -1,22 +1,24 @@
-import { useEffect } from 'react';
-import './App.css';
+import { useEffect } from "react";
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { GameModePage } from './pages/GameMode/GameMode';
+import { MainPage } from './pages/MainPage/MainPage';
+import "./App.css";
 
 const tg = window.Telegram.WebApp;
 
 function App() {
-
   useEffect(() => {
     tg.ready();
   }, []);
 
-  const onClose = () => {
-    tg.close();
-  }
   return (
-    <div className="App">
-      text
-      <button onClick={onClose}>Закрыть</button>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/game-mode" element={<GameModePage />} />
+      </Routes>
+    </Router>
   );
 }
 
