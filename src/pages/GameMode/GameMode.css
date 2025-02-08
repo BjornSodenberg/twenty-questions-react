@@ -1,0 +1,33 @@
+.gamemode {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../assets/backgrounds/game_mode.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.gamemode-selector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.gamemode-left, .gamemode-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100vh;
+}
+
+.gamemode-text {
+  color: #fff;
+  font-size: 32px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  text-decoration: none;
+}
