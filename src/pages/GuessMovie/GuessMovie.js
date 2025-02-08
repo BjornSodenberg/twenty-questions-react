@@ -1,4 +1,5 @@
 import { guessMessages } from "../../constants/defaultMessages";
+import { useState } from "react";
 import "./GuessMovie.css";
 
 export const GuessMoviePage = () => {
