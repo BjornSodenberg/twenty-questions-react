@@ -1,6 +1,11 @@
+import { guessMessages } from "../../constants/defaultMessages";
 import "./GuessMovie.css";
 
 export const GuessMoviePage = () => {
+  const [question, setQuestion] = useState("");
+  const [response, setResponse] = useState(null);
+  const [messages, setMessages] = useState(guessMessages);
+  
   return (
     <div className="guess">
       <div className="guess-container">
