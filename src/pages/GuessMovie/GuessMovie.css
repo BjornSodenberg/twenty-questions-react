@@ -1,35 +1,35 @@
-.suggest {
+.guess {
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-image: url(../../assets/backgrounds/suggest.png);
+  background-image: url(../../assets/backgrounds/guess.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.suggest-container {
+.guess-container {
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
 }
 
-.suggest-label {
+.guess-label {
   padding: 6px 16px;
-  background-color: #ce812f;
+  background-color: #4f4a47;
   border-radius: 99px;
   display: flex;
   justify-content: center;
 }
 
-.suggest-label p {
+.guess-label p {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 300;
 }
 
-.suggest-header {
+.guess-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -38,12 +38,12 @@
   height: 50px;
 }
 
-.suggest-back,
-.suggest-empty {
+.guess-back,
+.guess-empty {
   width: 32px;
 }
 
-.suggest-main {
+.guess-main {
   display: flex;
   flex: 1;
 
@@ -51,56 +51,50 @@
   padding: 0 14px;
 }
 
-.suggest-main-item {
+.guess-main-item {
   background-color: rgba(255, 255, 255, 0.2);
   padding: 8px 16px;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.suggest-main-list {
+.guess-main-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 100%;
 }
 
-.suggest-main-item:nth-child(odd) {
+.guess-main-item:nth-child(odd) {
   border-radius: 10px 10px 10px 0;
   align-self: self-start;
 }
 
-.suggest-main-item:nth-child(even) {
+.guess-main-item:nth-child(even) {
   border-radius: 10px 10px 0px 10px;
   align-self: flex-end;
 }
 
-.suggest-actions {
+.guess-actions {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 80px;
   width: 100vw;
   gap: 8px;
   padding: 0 14px;
+  gap: 10px;
 }
 
-.suggest-input {
-  background-color: transparent;
-  border: 2px solid #ce812f;
-  border-radius: 99px;
+.guess-action {
   color: #fff;
-  padding: 0 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #4f4a47;
+
+  border-radius: 99px;
   flex: 1;
   height: 50px;
-}
-
-.suggest-input::placeholder {
-  color: #fff;
-}
-
-.suggest-send {
-  width: 50px;
-  height: 50px;
-  background-color: #ce812f;
-  border-radius: 99px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
