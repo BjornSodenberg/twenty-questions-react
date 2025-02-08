@@ -8,11 +8,11 @@ export const MainPage = () => {
     <div className="App">
       <div className="main">
         <div>
-          <img src={logoImage} width={300} />
+          <img src={logoImage} width={300} alt="logo"/>
         </div>
         <div>
           <Link to="/game-mode">
-            <img src={playButton} width={200} />
+            <img src={playButton} width={200} alt="play"/>
           </Link>
         </div>
       </div>
