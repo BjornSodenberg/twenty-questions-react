@@ -13,15 +13,6 @@ export const SuggestMoviePage = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
-  const resetGame = () => {
-    setSecret('');
-    setMessages(suggestMessages);
-    setMoves(20)
-    setWait(false);
-    setShowModal(false);
-    setQuestion('');
-  }
-
   const handleInputChange = (e) => {
     setQuestion(e.target.value);
   };
@@ -87,11 +78,6 @@ export const SuggestMoviePage = () => {
     navigate(-2);
   };
 
-  const restartGame = () => {
-    setShowModal(false);
-    resetGame();
-  }
-
   return (
     <div className="suggest">
       <div className="suggest-container">
@@ -155,9 +141,6 @@ export const SuggestMoviePage = () => {
                   <p>Sorry, you lost. Try again next time!</p>
               )}
               <div className="actions">
-                {/*<button className="modal-close" onClick={restartGame}>*/}
-                {/*  Try Again*/}
-                {/*</button>*/}
                 <button className="modal-exit" onClick={exitGame}>
                   Exit
                 </button>

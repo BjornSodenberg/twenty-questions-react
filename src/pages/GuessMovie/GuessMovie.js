@@ -1,8 +1,8 @@
 import "./GuessMovie.css";
 import React, {useState} from "react";
-import {guessMessages, suggestMessages} from "../../constants/defaultMessages";
+import {guessMessages} from "../../constants/defaultMessages";
 import {useNavigate} from "react-router-dom";
-import {postAnswer, postQuestion} from "../../services/api";
+import {postAnswer} from "../../services/api";
 
 export const GuessMoviePage = () => {
   const [secret, setSecret] = useState('');
@@ -90,15 +90,15 @@ export const GuessMoviePage = () => {
             </ul>
           </div>
           <div className="guess-actions">
-            <div className="guess-action" onClick={() => handleSubmit('yes')}>
+            <button className="guess-action" onClick={() => handleSubmit('yes')} disabled={wait}>
               <p>Yes</p>
-            </div>
-            <div className="guess-action" onClick={() => handleSubmit('no')}>
+            </button>
+            <button className="guess-action" onClick={() => handleSubmit('no')} disabled={wait}>
               <p>No</p>
-            </div>
-            <div className="guess-action" onClick={() => handleSubmit('maybe')}>
+            </button>
+            <button className="guess-action" onClick={() => handleSubmit('maybe')} disabled={wait}>
               <p>Maybe</p>
-            </div>
+            </button>
           </div>
         </div>
 
