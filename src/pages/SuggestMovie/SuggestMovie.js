@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useRef, useState} from "react";
 import {postQuestion} from "../../services/api";
 import { suggestMessages } from "../../constants/defaultMessages";
 import "./SuggestMovie.css";
@@ -13,10 +13,19 @@ export const SuggestMoviePage = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
+  // Создаем ref для доступа к ul
+  const messagesEndRef = useRef(null);
+
   const handleInputChange = (e) => {
     setQuestion(e.target.value);
   };
 
+  // Функция для прокрутки до конца списка
+  const scrollToBottom = () => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
+    }
+  };
 
   const sendMessage = (text, isMine) => {
     const msg = {
@@ -26,6 +35,7 @@ export const SuggestMoviePage = () => {
     };
     setMessages((prevMessages) => [...prevMessages, msg]);
     setMoves((prevMoves) => prevMoves - 1);
+    scrollToBottom();
   };
 
   const handleSubmit = async () => {
@@ -95,7 +105,7 @@ export const SuggestMoviePage = () => {
           </div>
         </div>
         <div className="suggest-main">
-          <ul className="suggest-main-list">
+          <ul className="suggest-main-list" ref={messagesEndRef}>
             {messages.map((message) => (
               <li
                 key={message.id}

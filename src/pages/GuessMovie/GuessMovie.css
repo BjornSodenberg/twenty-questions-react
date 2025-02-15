@@ -60,7 +60,7 @@
   display: flex;
   flex: 1;
 
-  overflow: scroll;
+  overflow-y: scroll;
   padding: 0 20px;
 }
 

@@ -60,8 +60,9 @@
   display: flex;
   flex: 1;
 
-  overflow: scroll;
-  padding: 0 14px;
+  overflow-y: scroll;
+
+  padding-left: 14px;
 }
 
 .suggest-main-item {
