@@ -36,11 +36,24 @@
   align-items: center;
   width: 100vw;
   height: 50px;
+
+  margin-bottom: 20px;
+
+  padding: 0 20px;
 }
 
 .guess-back,
 .guess-empty {
-  width: 32px;
+  width: 80px;
+}
+
+.guess-empty {
+  display: flex;
+}
+
+.guess-empty span{
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .guess-main {
@@ -48,7 +61,7 @@
   flex: 1;
 
   overflow: scroll;
-  padding: 0 14px;
+  padding: 0 20px;
 }
 
 .guess-main-item {
@@ -81,8 +94,7 @@
   justify-content: space-between;
   height: 80px;
   width: 100vw;
-  gap: 8px;
-  padding: 0 14px;
+  padding: 0 20px;
   gap: 10px;
 }
 

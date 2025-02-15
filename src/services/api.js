@@ -38,7 +38,7 @@ export const postAnswer = async (answer, sessionId = "") => {
 
 export const postQuestion = async (question, secret) => {
   const endpoint = `${BASE_URL}/ask_question`;
-  const urlWithParams = `${endpoint}?question=${question}&secret=${secret || ""}`;
+  const urlWithParams = `${endpoint}?question=${question}&secret=${secret}`;
   try {
     const response = await fetch(urlWithParams, {
       method: "POST",
