@@ -1,8 +1,14 @@
 import "./GuessMovie.css";
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {guessMessages} from "../../constants/defaultMessages";
 import {useNavigate} from "react-router-dom";
 import {postAnswer} from "../../services/api";
+
+const AlwaysScrollToBottom = () => {
+  const elementRef = useRef();
+  useEffect(() => elementRef.current.scrollIntoView());
+  return <div ref={elementRef} />;
+};
 
 export const GuessMoviePage = () => {
   const [secret, setSecret] = useState('');
@@ -87,6 +93,7 @@ export const GuessMoviePage = () => {
                     <p>{message.msg}</p>
                   </li>
               ))}
+              <AlwaysScrollToBottom />
             </ul>
           </div>
           <div className="guess-actions">

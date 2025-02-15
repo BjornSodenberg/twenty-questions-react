@@ -85,7 +85,7 @@
 }
 
 .suggest-main-item:nth-child(even) {
-  border-radius: 10px 10px 0px 10px;
+  border-radius: 10px 10px 0 10px;
   align-self: flex-end;
 }
 
@@ -176,4 +176,8 @@
 .actions {
   display: flex;
   justify-content: space-around;
+}
+
+/* ie 10+ */
+.suggest-main-list { flex-grow: 1;
 }

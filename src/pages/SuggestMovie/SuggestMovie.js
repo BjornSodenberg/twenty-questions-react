@@ -1,8 +1,14 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {postQuestion} from "../../services/api";
 import { suggestMessages } from "../../constants/defaultMessages";
 import "./SuggestMovie.css";
 import {useNavigate} from "react-router-dom";
+
+const AlwaysScrollToBottom = () => {
+  const elementRef = useRef();
+  useEffect(() => elementRef.current.scrollIntoView());
+  return <div ref={elementRef} />;
+};
 
 export const SuggestMoviePage = () => {
   const [question, setQuestion] = useState("");
@@ -34,7 +40,9 @@ export const SuggestMoviePage = () => {
       isMine: isMine,
     };
     setMessages((prevMessages) => [...prevMessages, msg]);
-    setMoves((prevMoves) => prevMoves - 1);
+    if (isMine) {
+      setMoves((prevMoves) => prevMoves - 1);
+    }
     scrollToBottom();
   };
 
@@ -88,6 +96,7 @@ export const SuggestMoviePage = () => {
     navigate(-2);
   };
 
+
   return (
     <div className="suggest">
       <div className="suggest-container">
@@ -116,6 +125,7 @@ export const SuggestMoviePage = () => {
                 <p>{message.msg}</p>
               </li>
             ))}
+            <AlwaysScrollToBottom />
           </ul>
         </div>
         <div className="suggest-actions">
