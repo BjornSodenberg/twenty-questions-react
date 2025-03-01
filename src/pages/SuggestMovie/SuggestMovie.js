@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import {postQuestion} from "../../services/api";
-import { suggestMessages } from "../../constants/defaultMessages";
+import {suggestMessagesRu, suggestMessagesEn} from "../../constants/defaultMessages";
 import "./SuggestMovie.css";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
@@ -12,10 +12,10 @@ const AlwaysScrollToBottom = () => {
 };
 
 const SuggestMoviePage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [question, setQuestion] = useState("");
   const [secret, setSecret] = useState('');
-  const [messages, setMessages] = useState(suggestMessages);
+  const [messages, setMessages] = useState(i18n.language === 'ru' ? suggestMessagesRu : suggestMessagesEn);
   const [moves, setMoves] = useState(20);
   const [wait , setWait] = useState(false);
   const [showModal, setShowModal] = useState(false);

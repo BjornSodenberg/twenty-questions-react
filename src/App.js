@@ -13,16 +13,11 @@ const tg = window.Telegram.WebApp;
 
 function App() {
   useEffect(() => {
-    tg.ready();
 
-      // Определение языка пользователя из Telegram Web App
-      if (window.Telegram.WebApp) {
-          const userLanguage = window.Telegram.WebApp.language;
-          console.log('lang',userLanguage);
-          i18n.changeLanguage(userLanguage); // Установка языка пользователя
-      } else {
-          console.log('Telegram Web App не доступен');
-      }
+    const params = new URLSearchParams(window.location.search);
+    const userLanguage = params.get('lang') || 'en'; // Используем 'en' как fallback
+    tg.ready();
+    i18n.changeLanguage(userLanguage);
   }, []);
 
   return (

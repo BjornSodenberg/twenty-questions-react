@@ -15,9 +15,6 @@ const resources = {
     }
 };
 
-// Путь к файлам переводов
-const resourcesPath = './locales/{{lng}}/{{ns}}.json';
-
 i18n
     .use(Backend) // Загрузчик переводов
     .use(LanguageDetector)
@@ -30,10 +27,6 @@ i18n
 
         interpolation: {
             escapeValue: false, // React уже экранирует значения по умолчанию
-        },
-
-        backend: {
-            loadPath: resourcesPath, // Путь к файлам переводов
         },
     });
 

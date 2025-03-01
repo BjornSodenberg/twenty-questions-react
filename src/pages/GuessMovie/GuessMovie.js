@@ -1,6 +1,6 @@
 import "./GuessMovie.css";
 import React, {useEffect, useRef, useState} from "react";
-import {guessMessages} from "../../constants/defaultMessages";
+import {guessMessagesRu, guessMessagesEn} from "../../constants/defaultMessages";
 import {useNavigate} from "react-router-dom";
 import {postAnswer} from "../../services/api";
 import {useTranslation} from "react-i18next";
@@ -12,9 +12,9 @@ const AlwaysScrollToBottom = () => {
 };
 
 const GuessMoviePage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [secret, setSecret] = useState('');
-  const [messages, setMessages] = useState(guessMessages);
+  const [messages, setMessages] = useState(i18n.language === 'ru' ? guessMessagesRu : guessMessagesEn);
   const [wait , setWait] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
