@@ -1,0 +1,17 @@
+{
+  "guess": "Guess",
+  "suggest": "Suggest",
+  "movie": "Movie",
+  "yes": "Yes",
+  "no": "No",
+  "maybe": "Maybe",
+  "gameOver": "Game Over",
+  "playAgain": "Would you like to play again?",
+  "guessMovie": "Guess Movie",
+  "suggestMovie": "Suggest Movie",
+  "moves": "moves",
+  "won": "You Won!",
+  "wonMessage": "Congratulations! You won the game!",
+  "lostMessage": "Sorry, you lost. Try again next time!",
+  "exit": "Exit"
+}

@@ -3,6 +3,7 @@ import React, {useEffect, useRef, useState} from "react";
 import {guessMessages} from "../../constants/defaultMessages";
 import {useNavigate} from "react-router-dom";
 import {postAnswer} from "../../services/api";
+import {useTranslation} from "react-i18next";
 
 const AlwaysScrollToBottom = () => {
   const elementRef = useRef();
@@ -10,7 +11,8 @@ const AlwaysScrollToBottom = () => {
   return <div ref={elementRef} />;
 };
 
-export const GuessMoviePage = () => {
+const GuessMoviePage = () => {
+  const { t } = useTranslation();
   const [secret, setSecret] = useState('');
   const [messages, setMessages] = useState(guessMessages);
   const [wait , setWait] = useState(false);
@@ -75,7 +77,7 @@ export const GuessMoviePage = () => {
               </svg>
             </div>
             <div className="guess-label">
-              <p>Guess movie</p>
+              <p>{t('guessMovie')}</p>
             </div>
             <div className="guess-empty">
 
@@ -98,13 +100,13 @@ export const GuessMoviePage = () => {
           </div>
           <div className="guess-actions">
             <button className="guess-action" onClick={() => handleSubmit('yes')} disabled={wait}>
-              <p>Yes</p>
+              <p>{t('yes')}</p>
             </button>
             <button className="guess-action" onClick={() => handleSubmit('no')} disabled={wait}>
-              <p>No</p>
+              <p>{t('no')}</p>
             </button>
             <button className="guess-action" onClick={() => handleSubmit('maybe')} disabled={wait}>
-              <p>Maybe</p>
+              <p>{t('maybe')}</p>
             </button>
           </div>
         </div>
@@ -113,14 +115,14 @@ export const GuessMoviePage = () => {
         {showModal && (
             <div className="modal-overlay">
               <div className="modal-content">
-                <h2>Game Over</h2>
-                <p>Would you like to play again?</p>
+                <h2>{t('gameOver')}</h2>
+                <p>{t('playAgain')}</p>
                 <div className="actions">
                   <button className="modal-close" onClick={exitGame}>
-                    Yes
+                    {t('yes')}
                   </button>
                   <button className="modal-exit" onClick={exitGame}>
-                    No
+                    {t('no')}
                   </button>
                 </div>
               </div>
@@ -129,3 +131,5 @@ export const GuessMoviePage = () => {
       </div>
   );
 };
+
+export default GuessMoviePage;

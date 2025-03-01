@@ -3,6 +3,7 @@ import {postQuestion} from "../../services/api";
 import { suggestMessages } from "../../constants/defaultMessages";
 import "./SuggestMovie.css";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 const AlwaysScrollToBottom = () => {
   const elementRef = useRef();
@@ -10,7 +11,8 @@ const AlwaysScrollToBottom = () => {
   return <div ref={elementRef} />;
 };
 
-export const SuggestMoviePage = () => {
+const SuggestMoviePage = () => {
+  const { t } = useTranslation();
   const [question, setQuestion] = useState("");
   const [secret, setSecret] = useState('');
   const [messages, setMessages] = useState(suggestMessages);
@@ -107,10 +109,10 @@ export const SuggestMoviePage = () => {
             </svg>
           </div>
           <div className="suggest-label">
-            <p>Suggest movie</p>
+            <p>{t('suggestMovie')}</p>
           </div>
           <div className="suggest-empty">
-            <span>moves: {moves}</span>
+            <span>{t('moves')}: {moves}</span>
           </div>
         </div>
         <div className="suggest-main">
@@ -150,19 +152,19 @@ export const SuggestMoviePage = () => {
             <div className="modal-content">
               {
                 moves > 0 ? (
-                    <h2>You Won!</h2>
+                    <h2>{t('won')}</h2>
                 ) : (
-                    <h2>Game Over</h2>
+                    <h2>{t('gameOver')}</h2>
                 )
               }
               {moves > 0 ? (
-                  <p>Congratulations! You won the game!</p>
+                  <p>{t('wonMessage')}</p>
               ) : (
-                  <p>Sorry, you lost. Try again next time!</p>
+                  <p>{t('lostMessage')}</p>
               )}
               <div className="actions">
                 <button className="modal-exit" onClick={exitGame}>
-                  Exit
+                  {t('exit')}
                 </button>
               </div>
             </div>
@@ -171,3 +173,5 @@ export const SuggestMoviePage = () => {
     </div>
   );
 };
+
+export default SuggestMoviePage;
