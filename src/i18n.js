@@ -1,33 +1,56 @@
-import i18n from 'i18next';
-import { initReactI18next,  } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-xhr-backend';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
 
-import translationEN from './locales/en/translations.json';
-import translationRU from './locales/ru/translations.json';
 
 const resources = {
     en: {
-        translation: translationEN
+        translation: {
+            "guess": "Guess",
+            "suggest": "Suggest",
+            "movie": "Movie",
+            "yes": "Yes",
+            "no": "No",
+            "maybe": "Maybe",
+            "gameOver": "Game Over",
+            "playAgain": "Would you like to play again?",
+            "guessMovie": "Guess Movie",
+            "suggestMovie": "Suggest Movie",
+            "moves": "moves",
+            "won": "You Won!",
+            "wonMessage": "Congratulations! You won the game!",
+            "lostMessage": "Sorry, you lost. Try again next time!",
+            "exit": "Exit"
+        }
     },
-    de: {
-        translation: translationRU
+    ru: {
+        translation: {
+            "guess": "Угадать",
+            "suggest": "Загадать",
+            "movie": "Фильм",
+            "yes": "Да",
+            "no": "Нет",
+            "maybe": "Не важно",
+            "gameOver": "Игра окончена",
+            "playAgain": "Хотите сыграть ещё раз?",
+            "guessMovie": "Угадать фильм",
+            "suggestMovie": "Загадать фильм",
+            "moves": "ходов",
+            "won": "Победа!",
+            "wonMessage": "Поздравляю! Вы выиграли игру!",
+            "lostMessage": "К сожалению, вы проиграли. Попробуйте снова в следующий раз!",
+            "exit": "Выход"
+        }
     }
 };
 
 i18n
-    .use(Backend) // Загрузчик переводов
-    .use(LanguageDetector)
-    .use(initReactI18next) // Инициализация react-i18next
+    .use(initReactI18next) // passes i18n down to react-i18next
     .init({
         resources,
-        lng: 'en', // Язык по умолчанию
-        fallbackLng: 'en', // Язык, который будет использоваться, если перевод отсутствует
-        debug: true, // Включение режима отладки
-
+        lng: "en",
         interpolation: {
-            escapeValue: false, // React уже экранирует значения по умолчанию
-        },
+            escapeValue: false // react already safes from xss
+        }
     });
 
 export default i18n;
